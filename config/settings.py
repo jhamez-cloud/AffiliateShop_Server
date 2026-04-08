@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,12 +33,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'unfold',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'market',
+    'category',
+    'product',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +122,61 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# Unfold Settings
+UNFOLD = {
+    "SITE_TITLE": "My Admin",
+    "SITE_HEADER": "Affiliate Partner",
+    "SITE_URL": "/",
+    "SHOW_HISTORY": False,
+    "SHOW_VIEW_ON_SITE": True,
+    "SIDEBAR": {
+        "show_search": True,  # Search in applications and models names
+        "command_search": False,  # Replace the sidebar search with the command search
+        "show_all_applications": False,  # Dropdown with all applications and models
+        "navigation": [
+            {
+                "title": _("Navigation"),
+                "separator": True,  # Top border
+                "collapsible": False,  # Collapsible group of links
+                "items": [
+                    {
+                        "title": _("Dashboard"),
+                        "icon": "dashboard",  # Supported icon set: https://fonts.google.com/icons
+                        "link": reverse_lazy("admin:index"),
+                        "permission": lambda request: request.user.is_superuser,
+                    },
+                    {
+                        "title": _("Catgories"),
+                        "icon": "category",
+                        "link":reverse_lazy("admin:category_categorie_changelist"),
+                    },
+                    {
+                        "title": _("Markets"),
+                        "icon": "work",
+                        "link":reverse_lazy("admin:market_market_changelist"),
+                    },
+                    {
+                        "title": _("Produts"),
+                        "icon": "shopping_cart",
+                        "link":reverse_lazy("admin:product_product_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": _("Administrators Control"),
+                "separator": True,  # Top border
+                "collapsible": False,  # Collapsible group of links
+                "items": [
+                    {
+                        "title": _("Users"),
+                        "icon": "admin_panel_settings",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                ],
+            },
+        ],
+    },
+}
+
