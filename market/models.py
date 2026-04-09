@@ -10,7 +10,7 @@ class Market(models.Model):
     @property
     def total_products(self):
         '''Documentation String'''
-        return self.products_set.count()
+        return self.products.count() #pylint:disable=e1101
 
     def __str__(self):
         '''Documentation String'''

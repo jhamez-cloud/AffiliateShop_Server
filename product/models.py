@@ -11,7 +11,7 @@ class Product(models.Model):
     link = models.URLField(max_length=200)
     #image = models.ImageField(_(""), upload_to=None, height_field=None, width_field=None, max_length=None)
     category = models.ForeignKey(Categorie,on_delete=models.CASCADE)
-    market = models.ForeignKey(Market,on_delete=models.CASCADE)
+    market = models.ForeignKey(Market,on_delete=models.CASCADE,related_name="products")
 
     def __str__(self):
         return f"{self.slug}"
