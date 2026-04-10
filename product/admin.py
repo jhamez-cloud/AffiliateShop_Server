@@ -7,7 +7,7 @@ from .models import Product
 # Register your models here.
 class ProductAdmin(ModelAdmin):
     '''Documentation String'''
-    list_display = ("name","slug","category","market","link")
-    list_filter = ("name","category","market")
+    list_display = ("name","slug","image","category","market","link","price","badge")
+    list_filter = ("name","category","market","badge")
     search_fields = ("name","market")
     list_per_page = 10
