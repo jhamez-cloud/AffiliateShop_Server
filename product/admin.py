@@ -8,6 +8,7 @@ from .models import Product
 class ProductAdmin(ModelAdmin):
     '''Documentation String'''
     list_display = ("name","slug","image","category","market","link","price","badge")
+    prepopulated_fields = {'slug': ('name',)}
     list_filter = ("name","category","market","badge")
     search_fields = ("name","market")
     list_per_page = 10

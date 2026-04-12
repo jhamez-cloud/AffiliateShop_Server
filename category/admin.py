@@ -8,3 +8,4 @@ from .models import Categorie
 class CategorieAdmin(ModelAdmin):
     '''Documentation String'''
     list_display = ("name","slug")
+    prepopulated_fields = {'slug': ('name',)}
