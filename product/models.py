@@ -24,8 +24,8 @@ class Product(models.Model):
     badge = models.CharField(choices=BadgeChoices.choices,default=BadgeChoices.BEST_SELLER)
     rating = models.FloatField(null=True,validators=[MinValueValidator(0),MaxValueValidator(5)],default=1)
 
-    price = models.DecimalField(max_digits=5, decimal_places=2,default=0.00)
-    original_price = models.DecimalField(max_digits=5, decimal_places=2,default=0.00)
+    price = models.DecimalField(max_digits=8, decimal_places=2,default=0.00)
+    original_price = models.DecimalField(max_digits=8, decimal_places=2,default=0.00)
 
 
     def __str__(self):
