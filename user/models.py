@@ -7,8 +7,8 @@ class User(models.Model):
     '''Documentation String'''
     firebase_uid = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)
-    first_name = models.CharField(max_length=50,blank=True,null=True)
-    last_name = models.CharField(max_length=50,blank=True,null=True)
+    fullname = models.CharField(max_length=100,blank=True,null=True)
+    #last_name = models.CharField(max_length=50,blank=True,null=True)
     phone = models.CharField(max_length=50,blank=True,null=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
