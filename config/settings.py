@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+
 import os
 from pathlib import Path
 from django.urls import reverse_lazy
@@ -206,7 +207,12 @@ UNFOLD = {
                     {
                         "title": _("Users"),
                         "icon": "people",
-                        "link":reverse_lazy("admin:user_user_changelist"),
+                        "link":reverse_lazy("admin:user_userprofile_changelist"),
+                    },
+                    {
+                        "title": _("Notifications"),
+                        "icon": "notifications",
+                        "link":reverse_lazy("admin:notification_notification_changelist"),
                     },
                 ],
             },
@@ -228,13 +234,10 @@ UNFOLD = {
 
 #DRF Settings
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES":[
+    "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated"
     ],
-    "DEFAULT_AUTHENTICATION_CLASSES":(
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "account.firebase_auth.FirebaseAuthentication",
     ),
-    "DEFAULT_FILTER_BACKENDS": [
-        "django_filters.rest_framework.DjangoFilterBackend"
-    ],
 }
