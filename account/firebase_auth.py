@@ -1,23 +1,30 @@
 '''Documentation String'''
 import os
 import json
+import base64
+from user.models import UserProfile
 from rest_framework.authentication import BaseAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import auth
-from user.models import UserProfile
+from dotenv import load_dotenv
+load_dotenv()
+
 
 if not firebase_admin._apps:
-    firebase_creds = os.environ.get("FIREBASE_CREDENTIALS")
+    encoded = os.environ.get("FIREBASE_CREDENTIALS_B64")
 
-    if not firebase_creds:
-        raise Exception("FIREBASE_CREDENTIALS not set")
+    if not encoded:
+        raise Exception("Firebase credentials missing")
 
-    cred_dict = json.loads(firebase_creds)
+    decoded = base64.b64decode(encoded).decode("utf-8")
+    cred_dict = json.loads(decoded)
+
     cred = credentials.Certificate(cred_dict)
-
     firebase_admin.initialize_app(cred)
+
+    print("🔥 Firebase initialized")
 
 class FirebaseAuthentication(BaseAuthentication):
     '''Documentation String'''
