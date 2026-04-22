@@ -29,7 +29,11 @@ SECRET_KEY = 'django-insecure-1dnqtbgb#%3wf@=qw_6*=wndab8o)v-@jm13lw!^she-!l8kb-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "affiliateshop-server.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
