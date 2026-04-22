@@ -30,7 +30,8 @@ SECRET_KEY = 'django-insecure-1dnqtbgb#%3wf@=qw_6*=wndab8o)v-@jm13lw!^she-!l8kb-
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "affiliateshop-server.onrender.com",
+    "affiliateshop-server-2.onrender.com",
+    ".onrender.com",
     "localhost",
     "127.0.0.1",
 ]
@@ -69,13 +70,17 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
     "https://affiliate-shop-client.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
     "https://affiliate-shop-client.vercel.app/",
 ]
 

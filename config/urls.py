@@ -18,9 +18,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.http import JsonResponse
+
+def home(request):
+    '''Documentation String'''
+    return JsonResponse({"status": "API running 🚀"})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", home),
     path('api/v1/',include('product.urls')),
     path('api/v1/',include('user.urls')),
     path('api/v1/',include('notification.urls')),
