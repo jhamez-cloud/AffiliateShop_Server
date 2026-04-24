@@ -77,6 +77,9 @@ MIDDLEWARE = [
 ]
 
 STATIC_URL = '/static/'
+
+# Force collectstatic to always copy files
+STATICFILES_DIRS = []  # make sure this is empty or not set
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")

@@ -36,4 +36,6 @@ vnv/
 Thumbs.db
 
 #firebase admin sdk credentials
+*.json
 affiliateshop-*-firebase-adminsdk-*.jsonstaticfiles/
+affiliateshop-ffc2f-firebase-adminsdk-fbsvc-8a856b49e2.json
