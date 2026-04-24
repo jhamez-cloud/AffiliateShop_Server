@@ -199,11 +199,11 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",  # ← removed Manifest
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",  # ← plain default
     },
 }
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"  # ← removed Manifest
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.StaticFilesStorage"
 
 MEDIA_URL = "/"
 MEDIA_ROOT = BASE_DIR / "media"
