@@ -199,12 +199,11 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",  # ← removed Manifest
     },
 }
 
-# Add this line to keep cloudinary_storage happy
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"  # ← removed Manifest
 
 MEDIA_URL = "/"
 MEDIA_ROOT = BASE_DIR / "media"
