@@ -93,6 +93,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://affiliate-shop-client.vercel.app",
     "https://affiliate-shop-client-iyjv.vercel.app",
     "https://affiliate-shop-client-iyjv-hxuaoetlf-jhamez-clouds-projects.vercel.app",
+    "https://affiliate-shop-client-iyjv-ld7y1lr3t-jhamez-clouds-projects.vercel.app",
+
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -102,6 +104,11 @@ CSRF_TRUSTED_ORIGINS = [
     "https://affiliate-shop-client.vercel.app",
     "https://affiliate-shop-client-iyjv.vercel.app",
     "https://affiliate-shop-client-iyjv-hxuaoetlf-jhamez-clouds-projects.vercel.app",
+    "https://affiliate-shop-client-iyjv-ld7y1lr3t-jhamez-clouds-projects.vercel.app",
+]
+
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://affiliate-shop-client.*\.vercel\.app$",
 ]
 
 CORS_ALLOW_HEADERS = [
