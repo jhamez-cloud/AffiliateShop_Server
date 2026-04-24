@@ -78,6 +78,10 @@ MIDDLEWARE = [
 
 STATIC_URL = '/static/'
 
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True
+WHITENOISE_ROOT = BASE_DIR / 'staticfiles'
+
 # Force collectstatic to always copy files
 STATICFILES_DIRS = []  # make sure this is empty or not set
 STATIC_ROOT = BASE_DIR / 'staticfiles'
