@@ -75,7 +75,7 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "https://affiliate-shop-client.vercel.app",
-    "https://affiliate-shop-client-iyjv.vercel.app/",
+    "https://affiliate-shop-client-iyjv.vercel.app",
     "https://affiliate-shop-client-iyjv-hxuaoetlf-jhamez-clouds-projects.vercel.app",
 ]
 
@@ -83,8 +83,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
-    "https://affiliate-shop-client.vercel.app/",
-    "https://affiliate-shop-client-iyjv.vercel.app/",
+    "https://affiliate-shop-client.vercel.app",
+    "https://affiliate-shop-client-iyjv.vercel.app",
     "https://affiliate-shop-client-iyjv-hxuaoetlf-jhamez-clouds-projects.vercel.app",
 ]
 
